@@ -43,17 +43,297 @@
                     </script>
                 </section>
 
+                <section data-markdown>
+                    <script type="text/template">
+                        # WIP
+                    </script>
+                </section>
+
                 <section>
                     <section data-markdown>
                         <script type="text/template">
-                            # 
+                            ![](turing.jpg)
+                            ![](church.jpg)
+                            ![](godel.jpg)
+
+                            CC BY-SA 3.0 Wikipedia
                         </script>
                     </section>
 
                     <section data-markdown>
                         <script type="text/template">
-                            # 
+                            ![](turing.jpg)
+                            ![](church.jpg)
+                            ![](godel.jpg)
+
+                            Alan Turing / Alonzo Church / Kurt Gödel
                         </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ![](turing.jpg)
+                            ![](church.jpg)
+                            ![](godel.jpg)
+
+                            Alan Turing / Alonzo Church / Kurt Gödel
+
+                            Logic Based on Ordinals / Simply Typed Lambda Calculus / General recursive function
+
+                            1938 / 1936 / 1934
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ![](turing.jpg)
+                            ![](church.jpg)
+                            ![](godel.jpg)
+
+                            Alan Turing / Alonzo Church / Kurt Gödel
+
+                            Logic Based on Ordinals / Simply Typed Lambda Calculus / General recursive function
+
+                            1938 / 1936 / 1934
+
+                            Logicien / Logicien / Logicien
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            # Logique
+
+                            Discipline scientifique entre les mathématiques et la philosophie
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                             * Structure
+                             * Langage
+                             * Réalité
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            > There are only two hard things in Computer Science: cache invalidation and naming things
+
+                            Phil Karlton
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ![Quelles zones sont utilisées pour coder](brain.jpg)
+
+                            [http://www.fastcolabs.com/3029364/this-is-your-brain-on-code-according-to-functional-mri-imaging](http://www.fastcolabs.com/3029364/this-is-your-brain-on-code-according-to-functional-mri-imaging)
+                        </script>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            > Nommez vos variables/méthodes/classes de sorte à ce qu'elles indiquent ce qu'elles font
+
+                            Clean code, 2008
+
+                            > Prenez le vocabulaire du métier que vous voulez modéliser pour construire votre système
+
+                            Domain Driven Design, 2004
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            > Le monde est la totalité des faits, non des choses.
+
+                            aka Event Sourcing (2005) / CQRS (2009)
+
+                            > La frontière ne pourra donc être tracée que dans la langue, et ce qui est au-delà de cette frontière sera simplement dépourvu de sens.
+
+                            aka Bounded Context / Ubiquitous Language (2004)
+
+                            Ludwig Wittgenstein, Tractatus logico-philosophicus, 1922.
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            > Monoids are everywhere !
+
+                            Grand nom du DDD en France
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            > So?
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            > everywhere...
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            > Sur ce dont on ne peut parler, il faut garder le silence.
+
+                            Ludwig Wittgenstein, Tractatus logico-philosophicus, 1922.
+                        </script>
+                    </section>
+                </section>
+
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ### Comment rendre son code plus expressif ?
+
+                            aka communiquer notre intention au mieux
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            # => N'avoir que des variables d'une lettre
+                        </script>
+                    </section>
+
+                    <section>
+                        <pre><code> class Statistics {
+    public Integer maximum;
+    public Integer minimum;
+    public Integer accumulator;
+    public Integer cardinal;
+    public Statistics() {
+        maximum = Integer.MIN_VALUE;
+        minimum = Integer.MAX_VALUE;
+        accumulator = 0;
+        cardinal = 0;
+    }
+    public Integer average() {
+        if (cardinal == 0) return 0;
+        else return accumulator / cardinal;
+    }
+    public void addElement(Integer v) {
+        if (v > maximum) maximum = v;
+        if (v < minimum) minimum = v;
+        accumulator += v;
+        cardinal++;
+    }
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <pre><code>class Statistics&lt;T extends *able&lt;T&gt;&gt; {
+    public T maximum;
+    public T minimum;
+    public T accumulator;
+    public Integer cardinal;
+
+    public Statistics(T v) {
+        maximum = v;
+        minimum = v;
+        accumulator = v;
+        cardinal = 1;
+    }
+
+    public T average() { return accumulator / cardinal; }
+
+    public void merge(Statistics&lt;T&gt; v) {
+        if (v.maximum > maximum) maximum = v.maximum;
+        if (v.minimum < minimum) minimum = v.minimum;
+        accumulator += v.accumulator;
+        cardinal += v.cardinal;
+    }
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <pre><code>
+minimum = v.maximum;
+minimum = v.maximum ;
+accumulator += v.cardinal;
+cardinal += v.accumulator;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <pre><code>class Statistics&lt;T extends *able&lt;T&gt;&gt; {
+    public Maximum&lt;T&gt; maximum;
+    public Minimum&lt;T&gt; minimum;
+    public Sum&lt;T&gt; accumulator;
+    public Sum&lt;Integer&gt; cardinal;
+
+    public Statistics(T v) {
+        maximum = v;
+        minimum = v;
+        accumulator = v;
+        cardinal = 1;
+    }
+
+    public Average&lt;T&gt; average() { return accumulator.average(cardinal); }
+
+    public void merge(Statistics&lt;T&gt; v) {
+        maximum.merge(v.maximum);
+        minimum.merge(v.minimum);
+        accumulator.merge(v.accumulator);
+        cardinal.merge(v.cardinal);
+    }
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <pre><code>class Maximum&lt;T extends *able&lt;T&gt;&gt; {
+    public T value;
+    public Maximum(T v) { value = v; }
+    public void merge(Maximum&lt;T&gt; v) { if (v.value > value) value = v.value; }
+}
+
+class Minimum&lt;T extends *able&lt;T&gt;&gt; {
+    public T value;
+    public Minimum(T v) { value = v; }
+    public void merge(Minimum&lt;T&gt; v) { if (v.value < value) value = v.value; }
+}
+
+class Sum&lt;T extends *able&lt;T&gt;&gt; {
+    public T value;
+    public Sum(T v) { value = v; }
+    public void merge(Sum&lt;T&gt; v) { value += v.value; }
+    public Average&lt;T&gt; average(Sum&lt;Integer&gt; avg) { new Average&lt;T&gt;(value, avg.value); }
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <pre><code>
+minimum = v.maximum;
+minimum = v.maximum ;
+accumulator += v.cardinal;
+cardinal += v.accumulator;
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <pre><code>class Statistics&lt;T extends *able&lt;T&gt;&gt; {
+    public Maximum&lt;T&gt; a;
+    public Minimum&lt;T&gt; b;
+    public Sum&lt;T&gt; c;
+    public Sum&lt;Integer&gt; d;
+
+    public Statistics(T v);
+    public Average&lt;T&gt; average();
+    public void merge(Statistics&lt;T&gt; v);
+}
+                        </code></pre>
                     </section>
                 </section>
 
@@ -62,8 +342,31 @@
                         <script type="text/template">
                             # Conclusion
 
+                             * Le système de types est mon ami
+                             * Le système de types est mon ami
+                             * Le système de types est mon ami
+                             * Type Driven Development
+                             * Hole Driven Development => s'il y a plus d'une implémentation possible, c'est que vos types ne sont pas assez forts
+
                             [https://github.com/blackheaven/ht_structure_realite_langage](https://github.com/blackheaven/ht_structure_realite_langage)
                         </script>
+                    </section>
+
+                    <section>
+                        <pre><code>
+f :: Eq a => a -> a -> Bool
+f x y = _
+                        </code></pre>
+
+                        <pre><blockquote>
+    Found hole ‘_’ with type: Bool
+    Relevant bindings include
+      y :: a (bound at THC.hs:4:5)
+      x :: a (bound at THC.hs:4:3)
+      f :: a -> a -> Bool (bound at THC.hs:4:1)
+    In the expression: _
+    In an equation for ‘f’: f x y = _
+                        </blockquote></pre>
                     </section>
 
                     <section data-markdown>
