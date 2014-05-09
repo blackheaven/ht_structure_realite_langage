@@ -1,9 +1,9 @@
 class Statistics
 {
-    public Integer maximum;
-    public Integer minimum;
-    public Integer accumulator;
-    public Integer cardinal;
+    private Integer maximum;
+    private Integer minimum;
+    private Integer accumulator;
+    private Integer cardinal;
 
     public Statistics()
     {

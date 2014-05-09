@@ -1,9 +1,9 @@
 class Statistics<T extends *able<T>>
 {
-    public T maximum;
-    public T minimum;
-    public T accumulator;
-    public Integer cardinal;
+    private T maximum;
+    private T minimum;
+    private T accumulator;
+    private Integer cardinal;
 
     public Statistics(T v)
     {

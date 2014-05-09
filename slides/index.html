@@ -214,10 +214,10 @@
 
                     <section>
                         <pre><code> class Statistics {
-    public Integer maximum;
-    public Integer minimum;
-    public Integer accumulator;
-    public Integer cardinal;
+    private Integer maximum;
+    private Integer minimum;
+    private Integer accumulator;
+    private Integer cardinal;
     public Statistics() {
         maximum = Integer.MIN_VALUE;
         minimum = Integer.MAX_VALUE;
@@ -240,10 +240,10 @@
 
                     <section>
                         <pre><code>class Statistics&lt;T extends *able&lt;T&gt;&gt; {
-    public T maximum;
-    public T minimum;
-    public T accumulator;
-    public Integer cardinal;
+    private T maximum;
+    private T minimum;
+    private T accumulator;
+    private Integer cardinal;
 
     public Statistics(T v) {
         maximum = v;
@@ -275,10 +275,10 @@ cardinal += v.accumulator;
 
                     <section>
                         <pre><code>class Statistics&lt;T extends *able&lt;T&gt;&gt; {
-    public Maximum&lt;T&gt; maximum;
-    public Minimum&lt;T&gt; minimum;
-    public Sum&lt;T&gt; accumulator;
-    public Sum&lt;Integer&gt; cardinal;
+    private Maximum&lt;T&gt; maximum;
+    private Minimum&lt;T&gt; minimum;
+    private Sum&lt;T&gt; accumulator;
+    private Sum&lt;Integer&gt; cardinal;
 
     public Statistics(T v) {
         maximum = v;
@@ -301,19 +301,19 @@ cardinal += v.accumulator;
 
                     <section>
                         <pre><code>class Maximum&lt;T extends *able&lt;T&gt;&gt; {
-    public T value;
+    private T value;
     public Maximum(T v) { value = v; }
     public void merge(Maximum&lt;T&gt; v) { if (v.value > value) value = v.value; }
 }
 
 class Minimum&lt;T extends *able&lt;T&gt;&gt; {
-    public T value;
+    private T value;
     public Minimum(T v) { value = v; }
     public void merge(Minimum&lt;T&gt; v) { if (v.value < value) value = v.value; }
 }
 
 class Sum&lt;T extends *able&lt;T&gt;&gt; {
-    public T value;
+    private T value;
     public Sum(T v) { value = v; }
     public void merge(Sum&lt;T&gt; v) { value += v.value; }
     public Average&lt;T&gt; average(Sum&lt;Integer&gt; avg) { new Average&lt;T&gt;(value, avg.value); }
@@ -332,10 +332,10 @@ cardinal += v.accumulator;
 
                     <section>
                         <pre><code>class Statistics&lt;T extends *able&lt;T&gt;&gt; {
-    public Maximum&lt;T&gt; a;
-    public Minimum&lt;T&gt; b;
-    public Sum&lt;T&gt; c;
-    public Sum&lt;Integer&gt; d;
+    private Maximum&lt;T&gt; a;
+    private Minimum&lt;T&gt; b;
+    private Sum&lt;T&gt; c;
+    private Sum&lt;Integer&gt; d;
 
     public Statistics(T v);
     public Average&lt;T&gt; average();
